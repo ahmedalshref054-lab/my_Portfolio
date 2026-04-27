@@ -1,0 +1,240 @@
+:root {
+    --bg-deep: #050816;
+    --bg-card: rgba(17, 25, 40, 0.75);
+    --primary: #00d2ff;
+    --secondary: #9d50bb;
+    --accent-gradient: linear-gradient(90deg, #00d2ff 0%, #9d50bb 100%);
+    --text-white: #ffffff;
+    --text-gray: #aaa6c3;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', sans-serif;
+}
+
+body {
+    background-color: var(--bg-deep);
+    color: var(--text-white);
+    scroll-behavior: smooth;
+}
+
+/* Header */
+.main-header {
+    background: rgba(5, 8, 22, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 15px 5%;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 900;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 30px;
+    align-items: center;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-gray);
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+.btn-contact-nav {
+    background: var(--accent-gradient);
+    padding: 8px 20px;
+    border-radius: 8px;
+    color: white !important;
+}
+
+/* Hero Section */
+.hero-section {
+    padding: 180px 10% 100px;
+    background: radial-gradient(circle at top right, rgba(157, 80, 187, 0.1), transparent);
+}
+
+.specialization-tag {
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.main-name {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    margin: 15px 0;
+}
+
+.bio-text {
+    max-width: 700px;
+    color: var(--text-gray);
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.personal-info {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary);
+}
+
+.info-item span {
+    color: white;
+}
+
+/* Skills */
+.skill-badge {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 8px 18px;
+    border-radius: 50px;
+    margin-right: 10px;
+    border: 1px solid rgba(0, 210, 255, 0.3);
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+/* Projects Grid (تحسين للألوان) */
+.projects-section { padding: 80px 10%; }
+.section-title { text-align: center; margin-bottom: 50px; font-size: 2.5rem; }
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: var(--bg-card);
+    border-radius: 15px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: 0.3s;
+}
+
+.project-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-5px);
+}
+
+.project-image {
+    width: 100%;
+    height: 180px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.tech-tag {
+    font-size: 0.75rem;
+    color: var(--primary);
+    background: rgba(0, 210, 255, 0.1);
+    padding: 3px 10px;
+    border-radius: 4px;
+}
+
+.project-link {
+    display: block;
+    margin-top: 20px;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer { text-align: center; padding: 50px; color: var(--text-gray); }
+/* تعديلات خاصة بالموبايل (الشاشات الأصغر من 768px) */
+@media (max-width: 768px) {
+    /* 1. الهيدر: تقليل الحشو وتصغير اللوجو */
+    .nav-container {
+        flex-direction: column; /* ترتيب اللوجو والروابط فوق بعض */
+        gap: 15px;
+    }
+    
+    .nav-links {
+        gap: 15px;
+        font-size: 0.85rem;
+    }
+
+    /* 2. قسم التعريف: توسيط الكلام وتصغير الخط */
+    .hero-section {
+        padding: 120px 5% 60px;
+        text-align: center;
+    }
+
+    .main-name {
+        font-size: 2.2rem; /* تصغير الاسم عشان مياخدش مساحة كبيرة */
+    }
+
+    .bio-text {
+        font-size: 1rem;
+        text-align: justify; /* عشان الكلام يكون متساوي في الموبايل */
+        text-align-last: center;
+    }
+
+    /* 3. معلومات التواصل: ترتيبها تحت بعض بشكل شيك */
+    .personal-info {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* 4. معرض المشاريع: كارت واحد في الصف */
+    .projects-grid {
+        grid-template-columns: 1fr; /* كارت واحد عريض بعرض الشاشة */
+        gap: 25px;
+    }
+
+    .project-card {
+        padding: 15px;
+    }
+
+    /* 5. الأزرار: تكبيرها شوية عشان تكون سهلة في اللمس بالصوباع */
+    .cta-buttons {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .btn-primary, .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}
